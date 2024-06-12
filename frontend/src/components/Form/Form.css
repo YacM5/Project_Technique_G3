@@ -1,0 +1,51 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+.background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.6); /* White overlay with 60% opacity */
+  z-index: 1;
+}
+
+.Container,
+.Navbar,
+h2,
+.Form,
+.alert {
+  position: relative;
+  z-index: 2;
+}
+
+.custom-input {
+  transition: all 0.3s ease;
+}
+
+.custom-input:focus {
+  border-color: #c96d30;
+  box-shadow: 0 0 5px rgba(179, 0, 0, 0.256);
+}
+
+.btn-primary {
+  background-color: #c96d30;
+  border-color: #c96d30;
+}
+
+.btn-primary:hover {
+  background-color: #c96d30;
+  border-color: #b30000ca;
+}
