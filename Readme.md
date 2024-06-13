@@ -45,27 +45,31 @@ Ce projet implémente un système de prédiction des prix de nuitées Airbnb, ut
 
 Pour faciliter la gestion des environnements de développement pour le backend et le frontend, suivez les étapes ci-dessous dans des terminaux séparés mais sur une seule fenêtre de terminal, en utilisant des onglets ou des sessions distinctes.
 
-### Configuration globale
 
-Ouvrez une fenêtre de terminal et procédez comme suit pour chaque partie du projet :
-
-#### Backend
-1. **Créer et activer un environnement virtuel**
-
+1. **Je télécharge le Zip**
+2. **Décompresser le zip**
+3. **Ouvrir dans Vs-code**
+   #### Backend
+4. **Créer l'environnement virtuel**
    python -m venv venv
+5. **Activer l'environnement virtuel**
    # Sur Windows
    venv\Scripts\activate
    # Sur Unix ou MacOS
    source venv/bin/activate
-2. **Installer les dépendances**
+6. **Installer les dépendances**
   pip install -r requirements.txt
-3. **Lancer le serveur Django**
+7. **Lancer le serveur Django**
     python manage.py runserver
-#### Frontend
-1. **Installer les dépendances NPM**
-   npm install
-2. **Lancer le serveur de développement**
+   #### Frontend
+8. **Installer les dépendances NPM**
+    npm install
+9. **Lancer le serveur de développement**
+    # Sur Unix ou MacOS
    sudo npm run dev
+   # Sur Windows
    npm run dev
+10.**Lien Serveur**
+Prendre le lien du serveur et le mettre dans le navigateur
 ## Auteurs
 Mohamed ABDI GUIRREH & Ibrahim BOUGHANIME & Ahmed MOUSSA
