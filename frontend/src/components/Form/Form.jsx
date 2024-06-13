@@ -170,13 +170,6 @@ function Form() {
             <Button className="btn btn-primary" type="submit">
               Submit
             </Button>
-            <Button
-              className="btn btn-secondary"
-              style={{ marginLeft: "10px" }}
-              onClick={handleComparisonClick}
-            >
-              Comparaison
-            </Button>
           </div>
         </BootstrapForm>
         {predictedValue !== null && (
@@ -184,6 +177,11 @@ function Form() {
             Predicted Value: {predictedValue} $
           </div>
         )}
+        <div className="fixed-bottom-right">
+          <Button className="btn btn-secondary" onClick={handleComparisonClick}>
+            Comparaison
+          </Button>
+        </div>
         {showComparison && (
           <Card className="mt-5">
             <Card.Body>
