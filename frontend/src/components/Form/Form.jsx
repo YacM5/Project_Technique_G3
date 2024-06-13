@@ -6,9 +6,13 @@ import {
   Col,
   Button,
   Form as BootstrapForm,
+  Card,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Form.css";
+import Image1 from "../../assets/images/image_1.png";
+import Image2 from "../../assets/images/image_2.png";
+import Image3 from "../../assets/images/image.png";
 
 function Form() {
   const [formData, setFormData] = useState({
@@ -18,10 +22,11 @@ function Form() {
     Beds: "",
     Minimum_of_Nights: "",
     Maximum_of_Nights: "",
-    Reviews: "",
+    reviews: "",
   });
 
   const [predictedValue, setPredictedValue] = useState(null);
+  const [showComparison, setShowComparison] = useState(false); // State to control visibility of comparison images
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -41,7 +46,7 @@ function Form() {
         beds: parseInt(formData.Beds),
         minimum_nights: parseInt(formData.Minimum_of_Nights),
         maximum_nights: parseInt(formData.Maximum_of_Nights),
-        number_of_reviews: parseInt(formData.Reviews),
+        reviews: parseInt(formData.reviews),
       },
     };
 
@@ -63,6 +68,10 @@ function Form() {
     } catch (error) {
       console.error("Error:", error);
     }
+  };
+
+  const handleComparisonClick = () => {
+    setShowComparison(!showComparison);
   };
 
   return (
@@ -93,6 +102,7 @@ function Form() {
             height="70"
             className="d-inline-block align-top"
             alt="Airbnb logo"
+            style={{ zIndex: 1 }} // Ensure the logo is in front
           />
           <span
             style={{
@@ -132,6 +142,7 @@ function Form() {
                     style={{
                       color: "#C96D30",
                       fontFamily: "Poppins, sans-serif",
+                      fontWeight: "bold", // Make labels bold
                     }}
                   >
                     {key.charAt(0).toUpperCase() +
@@ -159,12 +170,49 @@ function Form() {
             <Button className="btn btn-primary" type="submit">
               Submit
             </Button>
+            <Button
+              className="btn btn-secondary"
+              style={{ marginLeft: "10px" }}
+              onClick={handleComparisonClick}
+            >
+              Comparaison
+            </Button>
           </div>
         </BootstrapForm>
         {predictedValue !== null && (
           <div className="alert alert-success mt-3 text-center" role="alert">
             Predicted Value: {predictedValue} $
           </div>
+        )}
+        {showComparison && (
+          <Card className="mt-5">
+            <Card.Body>
+              <Card.Title className="text-center">Model Comparison</Card.Title>
+              <Row>
+                <Col md={6} className="d-flex justify-content-center">
+                  <img
+                    src={Image1}
+                    alt="Model Comparison 1"
+                    className="img-fluid rounded"
+                  />
+                </Col>
+                <Col md={6} className="d-flex justify-content-center">
+                  <img
+                    src={Image2}
+                    alt="Model Comparison 2"
+                    className="img-fluid rounded"
+                  />
+                </Col>
+                <Col md={6} className="d-flex justify-content-center">
+                  <img
+                    src={Image3}
+                    alt="Model Comparison 3"
+                    className="img-fluid rounded"
+                  />
+                </Col>
+              </Row>
+            </Card.Body>
+          </Card>
         )}
       </Container>
     </>
